@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <h1>Upload file form</h1>
+    <a th:href="@{/}">back to list</a>
+    <br>
+
+    Share file: <a th:text="${file.name}"></a>
+    <form method="post" th:action="@{/file/mail}" th:object="${file}">
+        <div class="form-group">
+        <label>Email:</label> <input class="form-control" name="email">
+
+        <input th:field="*{id}" type="hidden" ><br>
+
+        <label>Content:</label> <input class="form-control" type="text" name="content"><br>
+        </div>
+        <button>Share</button>
+    </form>
+</section>
+</body>
+</html>
